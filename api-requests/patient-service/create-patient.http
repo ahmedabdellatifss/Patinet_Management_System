@@ -1,0 +1,14 @@
+### POST new patinet
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "name":"Ahmed ",
+  "email": "ahmedss2@test.com",
+  "address": "123 Giza Egypt",
+  "dateOfBirth": "1992-08-15",
+  "registeredDate": "2025-05-10"
+}
+
+
+###
