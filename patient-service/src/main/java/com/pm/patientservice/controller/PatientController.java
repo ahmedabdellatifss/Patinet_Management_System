@@ -6,7 +6,6 @@ import com.pm.patientservice.service.PatientService;
 import com.pm.patientservice.validators.CreatePatientValidationGroup;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

@@ -3,7 +3,6 @@ package com.pm.patientservice.mapper;
 import com.pm.patientservice.DTO.PatientRequestDTO;
 import com.pm.patientservice.DTO.PatientResponseDTO;
 import com.pm.patientservice.model.Patient;
-import org.hibernate.validator.internal.util.privilegedactions.LoadClass;
 
 import java.time.LocalDate;
 
