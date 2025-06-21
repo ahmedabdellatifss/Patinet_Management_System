@@ -5,8 +5,9 @@ spring:
   cloud:
     gateway:
       routes:
+        # Route requests for /auth/** to the http://auth-service:4005/login
         ## REST CLIENT to api gateway-> http://localhost:4004/auth/login
-        ## API GATEWAY will apply the filter and forward the request to -> http://patient-service:4000/patients
+        ## API GATEWAY will apply the filter and forward the request to -> http://auth-service:4005/login
         - id: auth-service-route
           uri: http://auth-service:4005
           predicates:
@@ -14,6 +15,7 @@ spring:
           filters:
             - StripPrefix=1
 
+        # Route requests for /api/patients/** to the patient-service
         ## REST CLIENT -> http://localhost:4004/api/patients
         ## API GATEWAY -> http://patient-service:4000/patients
         ## PATIENT SERVICE ( Spring boot app ) -> patients -> Patients Array
@@ -23,6 +25,7 @@ spring:
             - Path=/api/patients/**
           filters:
             - StripPrefix=1
+            - JwtValidation
 
         ## REST-CLIENT -> http://localhost:4004/api-docs/patients
         ## API-GATEWAY -> http://patients-service:4000/v3/api-docs
