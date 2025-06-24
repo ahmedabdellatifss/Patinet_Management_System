@@ -29,7 +29,7 @@ spring:
 
         ## REST-CLIENT -> http://localhost:4004/api-docs/patients
         ## API-GATEWAY -> http://patients-service:4000/v3/api-docs
-        # Route for /api/docs/patients to patients-service /v3/api-docs
+        # Route for /api/docs/patients to patients-service/v3/api-docs
         - id: api-docs-patient-rout
           uri: http://patient-service:4000
           predicates:
@@ -37,4 +37,10 @@ spring:
           filters:
             - RewritePath=/api-docs/patients,/v3/api-docs
 
+        - id: api-docs-auth-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/api-docs/auth
+          filters:
+            - RewritePath=/api-docs/auth,/v3/api-docs
 
